@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <script type="text/javascript">
+      var phrases = {
+        printemps: "C'est le printemps !",
+        ete: "L'été est là !",
+        automne: "L'automne arrive.",
+        hiver: "L'hiver est là, restez au chaud !",
+      };
+
+      function affichePhrase(saison) {
+        var phraseElement = document.getElementById("phraseAffichee");
+        phraseElement.textContent = phrases[saison] || "Saison inconnue";
+      }
+    </script>
+  </head>
+  <body>
+    <p>
+      <a href="javascript:void(0);" onclick="affichePhrase('printemps')"
+        >Cliquez ici pour voir la phrase du printemps</a
+      >
+    </p>
+    <p>
+      <a href="javascript:void(0);" onclick="affichePhrase('ete')"
+        >Cliquez ici pour voir la phrase de l'été</a
+      >
+    </p>
+    <p>
+      <a href="javascript:void(0);" onclick="affichePhrase('automne')"
+        >Cliquez ici pour voir la phrase de l'automne</a
+      >
+    </p>
+    <p>
+      <a href="javascript:void(0);" onclick="affichePhrase('hiver')"
+        >Cliquez ici pour voir la phrase de l'hiver</a
+      >
+    </p>
+
+    <p id="phraseAffichee">Sélectionnez une saison.</p>
+  </body>
+</html>

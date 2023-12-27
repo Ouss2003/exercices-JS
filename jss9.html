@@ -1,0 +1,37 @@
+<script>
+  function Semaine() {
+    this[0] = "Dimanche";
+    this[1] = "Lundi";
+    this[2] = "Mardi";
+    this[3] = "Mercredi";
+    this[4] = "Jeudi";
+    this[5] = "Vendredi";
+    this[6] = "Samedi";
+  }
+  function Mois() {
+    this[0] = "Janvier";
+    this[1] = "Fevrier";
+    this[2] = "Mars";
+    this[3] = "Avril";
+    this[4] = "Mai";
+    this[5] = "Juin";
+    this[6] = "Juillet";
+    this[7] = "Aout";
+    this[8] = "Septembre";
+    this[9] = "Octobre";
+    this[10] = "Novembre";
+    this[11] = "Decembre";
+  }
+  var semaine = new Semaine(); // Tableau des noms des jours
+  var mois = new Mois(); // Tableau des noms des mois
+  var myDate = new Date(); // On récupère la date actuelle
+  var result =
+    semaine[myDate.getDay()] +
+    " " +
+    myDate.getDate() +
+    " " +
+    mois[myDate.getMonth()] +
+    " " +
+    myDate.getFullYear();
+  document.write("la date du système est : " + result);
+</script>

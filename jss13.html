@@ -1,0 +1,38 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      function LitCookie(nom) {
+        var search = new String(nom + "=");
+        //y a t-il des cookies ?
+        if (document.cookie.length > 0) {
+          //le cookie existe-t-il ?
+          debut = document.cookie.indexOf(search);
+          if (debut != -1) {
+            // fin de la chaîne
+            fin = document.cookie.indexOf(";", debut);
+            if (fin == -1) fin = document.cookie.length;
+            return document.cookie.substring(debut, fin);
+          } else return "";
+        } else return "";
+      }
+      function CreeCookie(nom, valeur) {
+        document.cookie = nom + "=" + escape(valeur);
+      }
+
+      function CreeCookieDate(nom, valeur, dateExpire) {
+        if (dateExpire == null) expiration = "";
+        else expiration = " ; expires=" + dateExpire.toGMTString();
+        document.cookie = nom + "=" + valeur + expiration;
+      }
+      maDate = new Date(2024, 11, 31);
+      CreeCookieDate("login", "B.yasser", maDate);
+      console.log(LitCookie("login"));
+    </script>
+  </body>
+</html>

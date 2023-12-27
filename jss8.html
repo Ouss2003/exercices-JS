@@ -1,0 +1,39 @@
+<script language="JavaScript">
+  function str2Date(strDate) {
+    TDate = strDate.split("/");
+    return new Date(TDate[2], TDate[1] - 1, TDate[0]);
+  }
+  function classPersonne(nom, prenom, dateNaissance) {
+    this.Nom = nom;
+    this.Prenom = prenom;
+    this.DateNaissance = new str2Date(dateNaissance);
+    this.Age = function () {
+      dateSysteme = new Date();
+      return dateSysteme.getFullYear() - this.DateNaissance.getFullYear();
+    };
+  }
+  function classFonctionnaire(nom, prenom, dateNaissance, dateEmbauche) {
+    this.base = classPersonne;
+    this.base(nom, prenom, dateNaissance);
+    this.DateEmbauche = new str2Date(dateEmbauche);
+    this.Anciennte = function () {
+      dateSysteme = new Date();
+      return dateSysteme.getFullYear() - this.DateEmbauche.getFullYear();
+    };
+  }
+  oFonctionnaire = new classFonctionnaire(
+    "BOUSSALAM",
+    "Yasser",
+    "29/10/1969",
+    "02/06/2004"
+  );
+  document.write(
+    oFonctionnaire.Nom +
+      " " +
+      oFonctionnaire.Prenom +
+      " " +
+      oFonctionnaire.Age() +
+      " " +
+      oFonctionnaire.Anciennte()
+  );
+</script>
